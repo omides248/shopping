@@ -21,8 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_)t@ht4%m6e+iph!3)(o9fg1qz^eq7x@@e&uv#9zarphx%5+wv'
-# SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "_)t@ht4%m6e+iph!3)(o9fg1qz^eq7x@@e&uv#9zarphx%5+wv")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get("DEBUG", default=0))
@@ -90,10 +89,22 @@ WSGI_APPLICATION = 'shop_cart_django_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',`
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("POSTGRES_DB_NAME", "my_shop"),
+        'USER': os.environ.get("POSTGRES_USER", "omid1234"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD", "1111"),
+        # 'HOST': os.environ.get("POSTGRES_HOST", "postgres_db"),
+        'HOST': "postgres_db",
+        'PORT': os.environ.get("POSTGRES_PORT", "5432")
     }
 }
 

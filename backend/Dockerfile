@@ -20,13 +20,15 @@ COPY requirements.txt ./
 RUN apk --no-cache add build-base zlib-dev jpeg-dev
 
 # Config locale
-# ENV MUSL_LOCPATH=/usr/local/share/i18n/locales/musl
-# RUN apk add --update git cmake make musl-dev gcc gettext-dev libintl
-# RUN cd /tmp && git clone https://gitlab.com/rilian-la-te/musl-locales.git
-# RUN cd /tmp/musl-locales && cmake . && make && make install
-# ENV LANG=fa_IR.UTF-8 LANGUAGE=fa_IR.UTF-8 LANG=fa_IR LANGUAGE=fa_IR
+#ENV MUSL_LOCPATH=/usr/local/share/i18n/locales/musl
+#RUN apk add --update git cmake make musl-dev gcc gettext-dev libintl
+#RUN cd /tmp && git clone https://gitlab.com/rilian-la-te/musl-locales.git
+#RUN cd /tmp/musl-locales && cmake . && make && make install
+#ENV LANG=fa_IR.UTF-8 LANGUAGE=fa_IR.UTF-8 LANG=fa_IR LANGUAGE=fa_IR
+#RUN /usr/local/bin/locale -a
 
-# RUN /usr/local/bin/locale -a
+# Install psycopg2 dependencies
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
 
 # Install requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
@@ -35,8 +37,5 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . .
 
 
-RUN python3 manage.py makemigrations
-RUN python3 manage.py migrate
-RUN python3 manage.py collectstatic --noinput --clear
-RUN python3 manage.py createadmin
+
 # RUN python3 manage.py compilemessages

@@ -5,14 +5,21 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000
+    command: sh -c "python3 manage.py makemigrations orders products users &&
+                    python3 manage.py migrate &&
+                    python3 manage.py collectstatic --noinput --clear &&
+                    python3 manage.py createadmin &&
+                    gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000
+                   "
     volumes:
       - static_backend_volume:/usr/src/backend/static:rw
       - media_backend_volume:/usr/src/backend/media:rw
     expose:
       - 8000  # Set internal port (Expose ports without publishing them to the host machine)
     env_file:
-      - ./backend/.env.prod
+      - ./.env.prod
+    depends_on:
+      - postgres_db
   nginx:
     restart: always
     build: ./nginx
@@ -23,7 +30,17 @@ services:
       - 4001:80  # Set external port (host machine) and internal port (container)
     depends_on:
       - backend
-
+  postgres_db:
+    image: postgres:13.2-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=omid1234
+      - POSTGRES_PASSWORD=1111
+      - POSTGRES_DB=my_shop
 volumes:
   static_backend_volume:
   media_backend_volume:
+  postgres_data:
