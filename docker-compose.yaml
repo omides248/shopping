@@ -6,10 +6,10 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     command: sh -c "python3 manage.py makemigrations orders products users &&
-                    python3 manage.py migrate &&
-                    python3 manage.py collectstatic --noinput --clear &&
-                    python3 manage.py createadmin &&
-                    gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000"
+      python3 manage.py migrate &&
+      python3 manage.py collectstatic --noinput --clear &&
+      python3 manage.py createadmin &&
+      gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - static_backend_volume:/usr/src/backend/static:rw
       - media_backend_volume:/usr/src/backend/media:rw
@@ -39,6 +39,7 @@ services:
       - POSTGRES_USER=omid1234
       - POSTGRES_PASSWORD=1111
       - POSTGRES_DB=my_shop
+
 volumes:
   static_backend_volume:
   media_backend_volume:
