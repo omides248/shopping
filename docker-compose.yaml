@@ -9,8 +9,7 @@ services:
                     python3 manage.py migrate &&
                     python3 manage.py collectstatic --noinput --clear &&
                     python3 manage.py createadmin &&
-                    gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000
-                   "
+                    gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - static_backend_volume:/usr/src/backend/static:rw
       - media_backend_volume:/usr/src/backend/media:rw
