@@ -1,7 +1,7 @@
 # Shopping with django and reactjs
 
 
-#### Run containers:
+#### Create and running containers:
 ```
 docker-compose -f docker-compose.yaml up --build
 ```
