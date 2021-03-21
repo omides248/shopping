@@ -1,0 +1,46 @@
+.navbar {
+    overflow: hidden;
+    background-color: #3cb651;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    left: 0;
+    width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: black;
+}
+
+
+.cart-contents > .basket > .tot-price {
+    background-color: #000;
+    box-sizing: border-box;
+    border-radius: 1em;
+    color: #fff;
+    display: inline;
+    font-size: 9px;
+    left: 0;
+    margin-left: -5px;
+    padding: 2px 5px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    top: -7px;
+}
+
+.cart-contents > .basket > .tot-price:hover {
+    background-color: #eee;
+    color: #000;
+}

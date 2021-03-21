@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  backend:
+    restart: always
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/usr/src/backend/static:rw
+      - media_volume:/usr/src/backend/media:rw
+    expose:
+      - 8000
+    env_file:
+      - ./backend/.env.prod
+  nginx:
+    restart: always
+    build: ./nginx
+    volumes:
+      - static_volume:/usr/src/backend/static:rw
+      - media_volume:/usr/src/backend/media:rw
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+
+volumes:
+  static_volume:
+  media_volume:

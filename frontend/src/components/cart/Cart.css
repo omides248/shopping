@@ -1,0 +1,82 @@
+.table-cart {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #525d5205;
+}
+
+th {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.th-image-tag {
+    border-right: 1px solid #dddddd;
+}
+
+.th-remove-tag {
+    border-left: 1px solid #dddddd;
+}
+
+td {
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+
+.td-image-tag {
+    border-right: 1px solid #dddddd;
+}
+
+.td-remove-tag-right {
+    border-right: 1px solid #dddddd;
+}
+
+.td-remove-tag-left {
+    border-left: 1px solid #dddddd;
+}
+
+.button-cart {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #3cb651;
+    text-align: center;
+    cursor: pointer;
+    width: 20%;
+    font-size: 18px;
+    margin: 20px;
+}
+
+.button-cart:hover {
+    opacity: 0.7;
+}
+
+.div-button {
+    text-align: center;
+}
+
+.div-table {
+    padding: 10px;
+}
+
+.trash-icon-cart {
+    border-right: 1px solid #dddddd;
+}
+
+.trash-icon-cart:hover {
+    color: red;
+
+}
+
+.icon-decrement-cart:hover {
+    color: red;
+}
+
+.icon-increment-cart:hover {
+    color: #3cb651;
+}

@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-27 19:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: orders/admin.py:45
+msgid "Full name"
+msgstr "نام"
+
+#: orders/apps.py:7
+msgid "orders"
+msgstr "سفارشات"
+
+#: orders/models/order.py:25
+msgid "Order is begin registered"
+msgstr "سفارش ثبت شده"
+
+#: orders/models/order.py:26
+msgid "Delivered to the sales unit"
+msgstr ""
+
+#: orders/models/order.py:27
+msgid "Loading"
+msgstr ""
+
+#: orders/models/order.py:28
+msgid "Sending"
+msgstr "در حال ارسال"
+
+#: orders/models/order.py:29
+msgid "Cleared"
+msgstr ""
+
+#: orders/models/order.py:32
+msgid "Order number"
+msgstr "شماره سفارش"
+
+#: orders/models/order.py:33
+msgid "Order status"
+msgstr "وضعیت سفارش"
+
+#: orders/models/order.py:34
+msgid "Total cost"
+msgstr "کل هزینه"
+
+#: orders/models/order.py:35 orders/models/order_item.py:13
+#: products/models/product.py:21
+msgid "Off"
+msgstr "تخفیف"
+
+#: orders/models/order.py:36 users/models/user.py:40
+msgid "Phone number"
+msgstr "شماره تلفن"
+
+#: orders/models/order.py:37
+msgid "First name"
+msgstr ""
+
+#: orders/models/order.py:38
+msgid "last name"
+msgstr ""
+
+#: orders/models/order.py:39 products/models/category.py:17
+#: products/models/product.py:23
+msgid "Created at"
+msgstr ""
+
+#: orders/models/order.py:40 products/models/category.py:18
+#: products/models/product.py:24
+msgid "Updated at"
+msgstr ""
+
+#: orders/models/order.py:43 orders/models/order_item.py:10
+msgid "Order"
+msgstr ""
+
+#: orders/models/order.py:44
+msgid "Orders"
+msgstr ""
+
+#: orders/models/order_item.py:9 products/apps.py:7
+msgid "products"
+msgstr ""
+
+#: orders/models/order_item.py:11 products/models/category.py:14
+#: products/models/product.py:16
+msgid "Name"
+msgstr ""
+
+#: orders/models/order_item.py:12 products/models/product.py:20
+msgid "Price"
+msgstr ""
+
+#: orders/models/order_item.py:14 products/models/product.py:22
+msgid "Quantity"
+msgstr ""
+
+#: orders/models/order_item.py:17
+msgid "Order Item"
+msgstr ""
+
+#: orders/models/order_item.py:18
+msgid "Order Items"
+msgstr ""
+
+#: products/models/category.py:15
+msgid "Image"
+msgstr ""
+
+#: products/models/category.py:16
+msgid "Active"
+msgstr ""
+
+#: products/models/category.py:21 products/models/product.py:15
+msgid "Category"
+msgstr ""
+
+#: products/models/category.py:22
+msgid "Categories"
+msgstr ""
+
+#: products/models/product.py:10
+msgid "Small"
+msgstr ""
+
+#: products/models/product.py:11
+msgid "Medium"
+msgstr ""
+
+#: products/models/product.py:12
+msgid "Large"
+msgstr ""
+
+#: products/models/product.py:18
+msgid "Description"
+msgstr ""
+
+#: products/models/product.py:19
+msgid "Shirt size"
+msgstr ""
+
+#: products/models/product.py:27
+msgid "Product"
+msgstr ""
+
+#: products/models/product.py:28
+msgid "Products"
+msgstr ""
+
+#: users/admin.py:21
+msgid "Permissions"
+msgstr ""
+
+#: users/admin.py:24
+msgid "Important dates"
+msgstr ""
+
+#: users/apps.py:7
+msgid "users"
+msgstr ""
+
+#: users/models/user.py:41
+msgid "Sms token"
+msgstr ""
+
+#: users/serializers/user_serializer.py:20
+msgid "password and confirm_password is not equal"
+msgstr ""
+
+#: users/serializers/user_serializer.py:25
+msgid "Password can't starts with 1234"
+msgstr ""

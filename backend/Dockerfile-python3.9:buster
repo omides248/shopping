@@ -1,0 +1,25 @@
+FROM python:3.9-buster
+
+ENV PYTHONUNBUFFERED=1
+WORKDIR /usr/src/backend
+COPY requirements.txt ./
+
+# Config locale
+RUN apt-get clean && apt-get update && apt-get install -y locales
+RUN apt-get install -y gettext
+RUN echo "fa_IR.UTF-8 UTF-8" >> /etc/locale.gen
+RUN echo "fa_IR UTF-8" >> /etc/locale.gen
+RUN locale-gen fa_IR.UTF-8
+RUN locale-gen fa_IR
+RUN update-locale LANG=fa_IR.UTF-8
+RUN update-locale LANG=fa_IR
+RUN locale -a
+
+# Install python requirements
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . .
+RUN python3 manage.py makemigrations users orders products
+RUN python3 manage.py migrate
+
+CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
