@@ -7,23 +7,23 @@ services:
       dockerfile: Dockerfile
     command: gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - static_volume:/usr/src/backend/static:rw
-      - media_volume:/usr/src/backend/media:rw
+      - static_backend_volume:/usr/src/backend/static:rw
+      - media_backend_volume:/usr/src/backend/media:rw
     expose:
-      - 8000
+      - 8000  # Set internal port (Expose ports without publishing them to the host machine)
     env_file:
       - ./backend/.env.prod
   nginx:
     restart: always
     build: ./nginx
     volumes:
-      - static_volume:/usr/src/backend/static:rw
-      - media_volume:/usr/src/backend/media:rw
+      - static_backend_volume:/usr/src/backend/static:rw
+      - media_backend_volume:/usr/src/backend/media:rw
     ports:
-      - 80:80
+      - 4001:80  # Set external port (host machine) and internal port (container)
     depends_on:
       - backend
 
 volumes:
-  static_volume:
-  media_volume:
+  static_backend_volume:
+  media_backend_volume:
