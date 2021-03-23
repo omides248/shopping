@@ -6,12 +6,12 @@
 docker-compose -f docker-compose.yaml up --build
 ```
 
-#### Access site:
+#### Access shop:
 ```
 http://127.0.0.1:4000
 ```
 
-#### Access site on a browser:
+#### Access admin panel:
 ```
 http://127.0.0.1:4000/panel/admin
 ```
