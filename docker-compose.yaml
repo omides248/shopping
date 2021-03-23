@@ -26,9 +26,9 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    #    volumes:
-    #      - ./frontend/node_modules
-    #      - ./frontend:/usr/src/frontend
+    volumes:
+      - /usr/src/frontend/node_modules
+      - ./frontend:/usr/src/frontend
     ports:
       - 3000:3000
   nginx:
