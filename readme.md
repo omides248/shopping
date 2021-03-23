@@ -3,7 +3,7 @@
 
 #### Create and running containers:
 ```
-docker-compose -f docker-compose.yaml up --build
+docker-compose -f docker-compose.yaml up --build --remove-orphans
 ```
 
 #### Access shop:
