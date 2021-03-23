@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", "_)t@ht4%m6e+iph!3)(o9fg1qz^eq7x@@e&uv#9zarphx%5+wv")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get("DEBUG", default=0))
+DEBUG = int(os.environ.get("DEBUG", default=1))
 
 ALLOWED_HOSTS = ["*"]
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
@@ -184,7 +184,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/backend/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # if DEBUG:
@@ -194,7 +194,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # else:
 #     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/backend/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Config django user
@@ -221,3 +221,25 @@ CKEDITOR_CONFIGS = {
 
 # Config Cors
 CORS_ALLOW_ALL_ORIGINS = True
+
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler'
+#         },
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.FileHandler',
+#             'filename': '/var/log/shopping.log',
+#         },
+#     },
+#     'loggers': {
+#         '': {  # 'catch all' loggers by referencing it with the empty string
+#             'handlers': ['console', 'file'],
+#             'level': 'DEBUG',
+#             'propagate': True
+#         },
+#     },
+# }

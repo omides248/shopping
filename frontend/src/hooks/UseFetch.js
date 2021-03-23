@@ -23,7 +23,7 @@ export const useFetch = (url) => {
 
     useEffect(() => {
         const sendRequest = async () => {
-            const res = await axios.get(host + url, config)
+            const res = await axios.get(host + "products")
             setData(res.data)
             setSuccess(true)
             // console.log(res.data)

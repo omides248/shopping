@@ -1,13 +1,15 @@
 version: "3.8"
 services:
   backend:
+    container_name: shopping_backend
+    tty: true
     restart: always
     build:
       context: ./backend
       dockerfile: Dockerfile
     command: sh -c "python3 manage.py makemigrations orders products users &&
       python3 manage.py migrate &&
-      python3 manage.py collectstatic --noinput --clear &&
+      python3 manage.py collectstatic --noinput &&
       python3 manage.py createadmin &&
       gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000"
     volumes:
@@ -19,26 +21,39 @@ services:
       - ./.env.prod
     depends_on:
       - postgres_db
+  frontend:
+    container_name: shopping_forntend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    #    volumes:
+    #      - ./frontend/node_modules
+    #      - ./frontend:/usr/src/frontend
+    ports:
+      - 3000:3000
   nginx:
+    container_name: shopping_nginx
     restart: always
     build: ./nginx
     volumes:
       - static_backend_volume:/usr/src/backend/static:rw
       - media_backend_volume:/usr/src/backend/media:rw
     ports:
-      - 4001:80  # Set external port (host machine) and internal port (container)
+      - 4000:80  # Set external port (host machine) and internal port (container)
     depends_on:
       - backend
   postgres_db:
+    container_name: shopping_postgresql
     image: postgres:13.2-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    expose:
-      - 5432
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_USER=omid1234
       - POSTGRES_PASSWORD=1111
       - POSTGRES_DB=my_shop
+
 
 volumes:
   static_backend_volume:
