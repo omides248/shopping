@@ -1,5 +1,7 @@
 # Shopping with django and reactjs
 
+#### Diagram
+![shopping diagram](https://github.com/omides248/shopping/blob/master/shopping.png?raw=true)
 
 #### Create and running containers:
 ```
