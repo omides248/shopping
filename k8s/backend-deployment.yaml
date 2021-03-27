@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: backend
+  template:
+    metadata:
+      labels:
+        component: backend
+    spec:
+      containers:
+        - name: shopping-backend
+          image: omides248/shopping-backend
+          command: [ "sh", "-c" ]
+          args: ["python3 manage.py makemigrations orders products users &&
+                 python3 manage.py migrate &&
+                 python3 manage.py collectstatic --noinput &&
+                 python3 manage.py createadmin &&
+                 gunicorn shop_cart_django_backend.wsgi:application --bind 0.0.0.0:8000"]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
